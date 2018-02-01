@@ -1,0 +1,24 @@
+{
+  "name": "pie",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.1.0"
+  },
+  "dependencies": {
+    "degrees-radians": "1.0.3",
+    "gsap": "1.20.3",
+    "radians-degrees": "1.0.0",
+    "react": "16.2.0",
+    "react-color": "2.13.8",
+    "react-dom": "16.2.0",
+    "styled-components": "2.4.0",
+    "victory": "0.24.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
