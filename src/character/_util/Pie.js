@@ -28,6 +28,8 @@ class Pie extends Component {
         }else{
             this.y = size * .5
         }
+
+
     }
 
     _getRatio(fourSquare){
@@ -61,6 +63,9 @@ class Pie extends Component {
     }
 
     componentDidMount() {
+        const {nofill} = this.props
+        
+        
         this.ctx = this.canvas.getContext("2d")
         this._draw()
         this.props.animate()
@@ -70,16 +75,25 @@ class Pie extends Component {
         this.ctx.fillStyle = this.props.color
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.beginPath();
-        this.ctx.moveTo(this.x, this.y);
-        this.ctx.arc(this.x, this.y, this.radius, radians(this.props.start), radians(this.props.start+this.props.tween));
-        this.ctx.closePath();
-        this.ctx.fill();
+        
+        
+        
+        if(this.props.nofill){
+            const lineSize=6
+            const innerLine = lineSize*.5
+            this.ctx.strokeStyle=this.props.color;
+            this.ctx.lineWidth = lineSize;
+            this.ctx.arc(this.x-innerLine, this.y-innerLine, this.radius-innerLine, radians(this.props.start), radians(this.props.start+this.props.tween));
+            this.ctx.stroke();
+            this.ctx.closePath();
+        }else{
+            this.ctx.moveTo(this.x, this.y);
+            this.ctx.arc(this.x, this.y, this.radius, radians(this.props.start), radians(this.props.start+this.props.tween));
+            this.ctx.closePath();
+            this.ctx.fill();
+        }
     }
 
-    _gar(){
-        console.log('lksdjfklsdjf');
-        
-    }
 
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.tween !== this.props.tween){
@@ -112,8 +126,7 @@ class Pie extends Component {
 
     static defaultProps = {
         start: 20,    
-        tweenAmount: 180,
-        gar: 'garsdfsf',
+        tweenAmount: 180,        
         color: '#ff0000',
         custom: {slices:[[true, true], [true, true]], size: 200},
         onAnimateDone: ()=>{console.log('onAnimateDone');}

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {HocCharacter, MainCSS} from './_util/Character'
 import {Line, Pie, Rect, Hump} from './_util/Geo'
 
+const angle = 60
 class Character extends Component {
     render () {
         const {size, color, timelineCharacter} = this.props
@@ -11,8 +12,8 @@ class Character extends Component {
             <MainCSS {...this.props}>
                 <Pie 
                     custom={{fourSquare:[[true, true], [true, true]], size}}
-                    start={10} 
-                    tweenAmount={340} 
+                    start={angle*.5} 
+                    tweenAmount={360-angle} 
                     {...this.props}
                 />                     
             </MainCSS>

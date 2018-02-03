@@ -10,8 +10,8 @@ class Character extends Component {
     constructor(p){
         super(p)
         
-
         const {thick, tweenAmount, isVertical, timeline} = this.props
+        
         if(isVertical){
             this.canvasWidth = thick
             this.canvasHeight = tweenAmount
@@ -24,7 +24,7 @@ class Character extends Component {
     }
 
     static defaultProps = {
-        thick: 4,
+        thick: window.innerWidth<768 ? 4 : 6,
     }
 
     _drawVertical(){

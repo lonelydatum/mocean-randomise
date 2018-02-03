@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {HocCharacter, MainCSS} from './_util/Character'
 import {Line, Pie, Rect, Hump} from './_util/Geo'
 
-const ratio = 20/100
+const ratio = 15/150
 
 
 class Character extends Component {
@@ -33,7 +33,12 @@ class Character extends Component {
 const ratioMargin = 18/100
 
 const PieCSS = styled(`canvas`)`
-    margin-bottom: ${me=>me.size*ratioMargin}px;
+    margin-bottom: ${
+        me=>{
+            const ratio = 20/me.size
+            return me.size*ratio
+        }
+    }px;
 `.withComponent(Pie)
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {TimelineMax, TweenMax, Back} from 'gsap'
+import {TimelineMax, TweenMax, Power2 as Back} from 'gsap'
 
 
 
@@ -43,6 +43,7 @@ function HocAnatomy(ComponentOG){
                 onUpdate:()=>{                
                     this.setState({tween:stateCopy.tween})
                 },
+                ease: Back.easeInOut,
                 delay: this.props.delay
             }
 

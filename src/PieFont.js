@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import {TimelineMax, Back} from 'gsap'
+import theme from './character/_util/theme'
 
 import A from './character/A'
 import B from './character/B'
@@ -99,9 +100,11 @@ class App extends Component {
     render() {        
         const {message} = this.props
         return  (
-        <MainCSS className={this.props.className} size={this.props.size}>
-            {this._stringToComponent(message)}
-        </MainCSS>
+        
+            <MainCSS className={this.props.className} size={this.props.size}>
+                {this._stringToComponent(message)}
+            </MainCSS>
+        
     )    
   } 
 }
@@ -115,7 +118,7 @@ const MainCSS = styled('div')`
   display:flex;
   align-items: flex-end; 
   /* margin: 22px; */
-  height: ${me=>me.size||150}px;
+  /* height: ${me=>me.size||150}px; */
   /* border: 1px solid red; */
   flex-wrap: wrap;
   margin-bottom: ${me=>me.size*.5||75}px;

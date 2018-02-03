@@ -16,8 +16,8 @@ class Character extends Component {
                     isVertical={true}
                     {...this.props}
                 />     
-                <Pie 
-                    custom={{fourSquare:[[false, true], [false, true]], size}}
+                <PieX
+                    custom={{fourSquare:[[false, true], [false, true]], size:size*1.5}}
                     start={360-half}
                     tweenAmount={amount}                    
                     {...this.props}
@@ -27,5 +27,8 @@ class Character extends Component {
     }
 }
 
+const PieX = styled(Pie)`
+    transform: translateY(5%);
+`
 
 export default HocCharacter(Character, 'K')

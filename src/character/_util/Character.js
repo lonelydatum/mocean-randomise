@@ -44,24 +44,35 @@ function HocCharacter(ComponentOG, character) {
     }
 }
 
-const ratio = 1/25
+
 
 const MainCSS = styled('div')`    
     display: inline-flex;
     position: relative;    
-    /* height: 150px; */
+
+    /* border: 1px solid red; */
     
-    margin: 0px ${me=>me.size? me.size * ratio : 5}px;
+    margin-right: ${me=>{
+        const ratio = me.theme.letterspacing / me.theme.size
+        return me.size * ratio
+    }}px;
+
     margin-left: ${me=>{
-        return me.space ? `${(me.size * ratio * 10)}px` : 'initial'
+        const ratio = me.theme.letterspacing / me.theme.size * 3
+        return me.space ? `${(me.size * ratio)}px` : 'initial'
     }};
-    /* width: 1px; */
+
     & > canvas {
         display: block;
     }    
 
+    margin-bottom: ${me=>{
+        const ratio = 20 / me.theme.size
+        return me.size * ratio
+    }}px;
     
     
+
     /* flex-direction: row-reverse; */
     align-items: flex-end;
     ${p => Object.keys(p).map(k => `${k}: ${p[k]};`).join('\n')};
