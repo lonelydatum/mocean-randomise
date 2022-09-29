@@ -15,7 +15,7 @@
     "react-dom": "16.2.0",
     "react-share": "2.0.0",
     "styled-components": "2.4.0",
-    "victory": "0.24.5"
+    "victory": "36.6.8"
   },
   "scripts": {
     "start": "react-scripts start",
